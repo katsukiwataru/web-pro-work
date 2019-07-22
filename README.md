@@ -43,7 +43,7 @@ show tables;
 
 ## table作成
 
-#### カテゴリー作成
+#### カテゴリーテーブル作成
 ```
 create table category(
   id int auto_increment primary key,
