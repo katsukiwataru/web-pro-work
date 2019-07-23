@@ -45,36 +45,38 @@ show tables;
 
 #### カテゴリーテーブル作成
 ```
-create table category(
-  id int auto_increment primary key,
-  name varchar(255)
+create table categories(
+    id int auto_increment not null primary key,
+    name varchar(30) not null
 );
 ```
 #### コンテンツテーブル作成
 ```
 create table contents(
-  id int auto_increment primary key,
-  category_id int not null,
-  foreign key (category_id)
-    references category(id),
-  title varchar(255)
-  created varchar(255)
+    id int auto_increment not null primary key,
+    category_id int not null,
+    title varchar(50) not null,
+    body varchar(255) not null,
+    date timestamp default current_timestamp,
+    foreign key (category_id)
+        references categories(id)
 );
 ```
 #### ユーザーテーブル作成
 ```
-create table user(
-  id int auto_increment primary key,
-  name varchar(255)
+create table users(
+    id int auto_increment not null primary key,
+    username varchar(20) not null,
+    password varchar(100) not null
 );
 ```
 
 #### 権限テーブル作成
 ```
-create table user_permission(
-  id int auto_increment primary key,
-  name VARCHAR(255) not null,
-)
+create table permissions(
+    id int auto_increment not null primary key,
+    name varchar(20) not null
+);
 ```
 
 #### ユーザーテーブル作成
@@ -88,13 +90,18 @@ create table user (
 
 #### ユーザー権限テーブル作成
 ```
-create table user_infomation(
-  id int auto_increment primary key,
-  user_id int not null,
-  foreign key (user_id)
-    references user(id),
-  user_permission int not null,
-  foreign key (user_permission)
-    references user_permission(id),
+create table user_permissions(
+    id int auto_increment not null primary key,
+    user_id int not null,
+    permission_id int not null,
+    foreign key (user_id)
+        references users(id),
+    foreign key (permission_id)
+        references permissions(id)
 );
+```
+
+#### 権限の一覧を追加
+```
+INSERT INTO permissions(name) VALUES ('administrator'), ('editor'), ('viewer');
 ```
