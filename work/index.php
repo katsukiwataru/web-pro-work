@@ -13,15 +13,16 @@
     <span>Logout</span>
   </div>
   </header>
-  <form action="">
+  <form action="create.php" method="POST">
     <div>
       <p>Email</p>
-      <input type="text">
+      <input type="text" name="mail">
     </div>
     <div>
       <p>Password</p>
-      <input type="text">
+      <input type="text" name="pass">
     </div>
+    <button>Login</button>
   </form>
 </body>
 </html>
