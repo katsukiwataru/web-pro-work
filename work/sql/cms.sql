@@ -18,9 +18,9 @@ create table permissions(
 create table user_permissions(
     id int auto_increment not null primary key,
     user_id int not null,
-    permission_id int not null,
     foreign key (user_id)
         references users(id),
+    permission_id int not null,
     foreign key (permission_id)
         references permissions(id)
 );
