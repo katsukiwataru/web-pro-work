@@ -13,7 +13,16 @@
     <span>Logout</span>
   </div>
   </header>
-  <form action="create.php" method="POST">
+  <ul>
+    <li><a href="user_list.php">ユーザー一覧</a></li>
+    <li><a href="user_register.php">ユーザー登録</a></li>
+    <li><a href="">コンテンツ一覧</a></li>
+    <li><a href="">コンテンツ登録</a></li>
+    <li><a href="">コンテンツ詳細</a></li>
+    <li><a href="">カテゴリー一覧</a></li>
+    <li><a href="">カテゴリー登録</a></li>
+  </ul>
+  <form action="login.php" method="POST">
     <div>
       <p>Email</p>
       <input type="text" name="mail">
