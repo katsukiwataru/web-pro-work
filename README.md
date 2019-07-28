@@ -15,6 +15,11 @@ docker container exec -it コンテナID bash
 mysql -u root -h db
 ```
 
+## mysql
+```
+source work/sql/cms.sql
+```
+
 ## mysqlユーザー作成
 ```
 CREATE USER testuser IDENTIFIED BY 'testuser';
