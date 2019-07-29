@@ -1,0 +1,15 @@
+.user_list {
+  display: flex;
+}
+
+.users_id {
+  margin: 10px;
+}
+
+.users_name {
+  margin: 10px;
+}
+
+.users_permissions {
+  margin: 10px;
+}
