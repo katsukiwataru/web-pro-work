@@ -39,3 +39,7 @@ create table contents(
     foreign key (category_id)
         references categories(id)
 );
+
+insert into permissions (name) values ("Administrator");
+insert into permissions (name) values ("Editor");
+insert into permissions (name) values ("Visitor");
