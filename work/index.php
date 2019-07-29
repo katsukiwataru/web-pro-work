@@ -19,11 +19,11 @@
   <ul>
     <li><a href="user_list.php">ユーザー一覧</a></li>
     <li><a href="user_register.php">ユーザー登録</a></li>
-    <li><a href="">コンテンツ一覧</a></li>
-    <li><a href="">コンテンツ登録</a></li>
-    <li><a href="">コンテンツ詳細</a></li>
-    <li><a href="">カテゴリー一覧</a></li>
-    <li><a href="">カテゴリー登録</a></li>
+    <li><a href="contents_list.php">コンテンツ一覧</a></li>
+    <li><a href="contents_register.php">コンテンツ登録</a></li>
+    <li><a href="contents.php">コンテンツ詳細</a></li>
+    <li><a href="category_list.php">カテゴリー一覧</a></li>
+    <li><a href="category_register.php">カテゴリー登録</a></li>
   </ul>
 <?
 if (!$_SESSION['user']) {
