@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -22,6 +25,9 @@
     <li><a href="">カテゴリー一覧</a></li>
     <li><a href="">カテゴリー登録</a></li>
   </ul>
+<?
+if (!$_SESSION['user']) {
+?>
   <form action="login.php" method="POST">
     <div>
       <p>Email</p>
@@ -33,5 +39,9 @@
     </div>
     <button>Login</button>
   </form>
+<?
+}
+?>
+  <button onclick="location.href='./logout.php'">Logout</button>
 </body>
 </html>
