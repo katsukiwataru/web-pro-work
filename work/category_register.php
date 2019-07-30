@@ -1,14 +1,17 @@
 <?php
   session_start();
-  $permissions = $_SESSION['perm'];
+  $perm = $_SESSION['perm'];
+
   if (!$_SESSION['perm']) {
     header('Location: index.php');
     exit;
   }
+
   if (!empty($_POST['title'])) {
     $title = $_POST['title'];
   }
-  if (in_array("2", $permissions)) {
+
+  if (in_array("2", $perm)) {
     try {
       $dbh = new PDO('mysql:host=db;dbname=cms','myuser', 'testuser');
       $stmt = $dbh->prepare('INSERT INTO categories (name) VALUES (?)');
