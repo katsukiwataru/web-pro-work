@@ -6,8 +6,8 @@
     header('Location: index.php');
     exit;
   }
-  if (in_array("1", $per)) {
 
+  if (in_array("1", $per)) {
     if (!empty($_POST['id']) && !empty($_POST['pass'] && !empty($_POST['permission']))) {
       $id = $_POST['id'];
       $pass = $_POST['pass'];
@@ -31,6 +31,9 @@
         exit;
       }
     }
+  } else {
+    header('Location: index.php');
+    exit;
   }
 ?>
 <!DOCTYPE html>
