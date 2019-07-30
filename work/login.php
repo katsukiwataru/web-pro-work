@@ -1,8 +1,8 @@
 <?php
   session_start();
-  // if(isset($_SESSION['user'])) {
-  //   header('Location: index.php');
-  // }
+  if(isset($_SESSION['user'])) {
+    header('Location: index.php');
+  }
   if (!empty($_POST['mail']) && !empty($_POST['pass'])) {
     $mail = $_POST['mail'];
     $pass = $_POST['pass'];
