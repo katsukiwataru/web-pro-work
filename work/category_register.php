@@ -8,7 +8,7 @@
   if (!empty($_POST['title'])) {
     $title = $_POST['title'];
   }
-  if (in_array(1, $permissions)) {
+  if (in_array("2", $permissions)) {
     try {
       $dbh = new PDO('mysql:host=db;dbname=cms','myuser', 'testuser');
       $stmt = $dbh->prepare('INSERT INTO categories (name) VALUES (?)');
@@ -17,7 +17,9 @@
       var_dump ($e);
       exit;
     }
-  };
+  } else {
+    header('Location: index.php');
+  }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
