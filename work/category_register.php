@@ -31,8 +31,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CMS カテゴリ登録</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>カテゴリ登録</h1>
   <form action="category_register.php" method="POST">
     <div>
       <p>タイトル</p>
