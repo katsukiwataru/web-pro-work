@@ -1,25 +1,35 @@
 <?php
-  if (!empty($_POST['id']) && !empty($_POST['pass'] && !empty($_POST['permission']))) {
-    $id = $_POST['id'];
-    $pass = $_POST['pass'];
-    try {
-      $dbh = new PDO('mysql:host=db;dbname=cms','myuser', 'testuser');
-      $stmt = $dbh->prepare('INSERT INTO users (username, password) VALUES (?,?)');
-      $stmt->execute(array($id, $pass));
+  session_start();
+  $per = $_SESSION['perm'];
 
-      $stmt = $dbh->query('SELECT max(id) FROM users');
-      if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $max_id = $row['max(id)'];
-        $permissions = $_POST['permission'];
-        $_stmt = $dbh->prepare('INSERT INTO user_permissions (user_id, permission_id) VALUES (?,?)');
-        foreach ($permissions as $perm){
-          $_stmt->execute(array($max_id, $perm));
+  if (!$_SESSION['perm']) {
+    header('Location: index.php');
+    exit;
+  }
+  if (in_array("1", $per)) {
+
+    if (!empty($_POST['id']) && !empty($_POST['pass'] && !empty($_POST['permission']))) {
+      $id = $_POST['id'];
+      $pass = $_POST['pass'];
+      $permissions = $_POST['permission'];
+      try {
+        $dbh = new PDO('mysql:host=db;dbname=cms','myuser', 'testuser');
+        $stmt = $dbh->prepare('INSERT INTO users (username, password) VALUES (?,?)');
+        $stmt->execute(array($id, $pass));
+
+        $stmt = $dbh->query('SELECT max(id) FROM users');
+        if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+          $max_id = $row['max(id)'];
+          $_stmt = $dbh->prepare('INSERT INTO user_permissions (user_id, permission_id) VALUES (?,?)');
+          foreach ($permissions as $perm){
+            $_stmt->execute(array($max_id, $perm));
+          };
+          header('Location: index.php');
         };
-        header('Location: index.php');
-      };
-    } catch (PDOException $e) {
-      var_dump($e);
-      exit;
+      } catch (PDOException $e) {
+        var_dump($e);
+        exit;
+      }
     }
   }
 ?>
@@ -37,7 +47,6 @@
   <header>
   <div>
     <h1>CMS</h1>
-    <span>Logout</span>
   </div>
   </header>
   <form action="user_register.php" method="POST">
