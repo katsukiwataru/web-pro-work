@@ -15,7 +15,6 @@
   <header>
   <div>
     <h1>CMS</h1>
-    <span>Logout</span>
   </div>
   </header>
   <ul>
