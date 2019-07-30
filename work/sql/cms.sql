@@ -43,3 +43,6 @@ create table contents(
 insert into permissions (name) values ("Administrator");
 insert into permissions (name) values ("Editor");
 insert into permissions (name) values ("Visitor");
+
+insert into users (username, password) VALUES ("test", "test");
+insert into user_permissions (user_id, permission_id) VALUES ("1", "1");
