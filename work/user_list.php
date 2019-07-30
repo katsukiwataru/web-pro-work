@@ -8,7 +8,7 @@
     exit;
   }
 
-  if (in_array("1", $per)) {
+  if (!in_array("1", $per)) {
     header('Location: index.php');
     exit;
   }
