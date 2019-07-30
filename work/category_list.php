@@ -1,6 +1,17 @@
 <?php
   $dbh = new PDO('mysql:host=db;dbname=cms','myuser', 'testuser');
   session_start();
+  $perm = $_SESSION['perm'];
+
+  if (!$_SESSION['perm']) {
+    header('Location: index.php');
+    exit;
+  }
+
+  if (!in_array("2", $perm)) {
+    header('Location: index.php');
+    exit;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
