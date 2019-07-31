@@ -59,7 +59,7 @@
     </div>
     <div>
       <p>パスワード</p>
-      <input type="text" name="pass">
+      <input type="password" name="pass">
     </div>
     <div>
       <p>権限</p>

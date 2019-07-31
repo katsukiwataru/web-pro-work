@@ -36,7 +36,7 @@ if (!$_SESSION['user']) {
     </div>
     <div>
       <p>Password</p>
-      <input type="text" name="pass">
+      <input type="password" name="pass">
     </div>
     <button>Login</button>
   </form>
