@@ -27,15 +27,15 @@ create table user_permissions(
 
 create table categories(
     id int auto_increment not null primary key,
-    name varchar(30) not null
+    name varchar(255) not null
 );
 
 create table contents(
     id int auto_increment not null primary key,
-    category_id int not null,
     title varchar(50) not null,
     body varchar(255) not null,
     date timestamp default current_timestamp,
+    category_id int not null,
     foreign key (category_id)
         references categories(id)
 );
