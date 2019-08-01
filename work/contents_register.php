@@ -1,24 +1,13 @@
 <?php
   session_start();
-
-  function h($str) {
-    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
-  }
-
-  $perm = $_SESSION['perm'];
+  $per = $_SESSION['perm'];
 
   if (!$_SESSION['perm']) {
     header('Location: index.php');
     exit;
   }
-
-  if (in_array("2", $perm)) {
-    if (!empty($_POST['title'])  && !empty($_POST['category']) && !empty($_POST['body'])) {
-      $title = $_POST['title'];
-      $category = $_POST['category'];
-      $body = $_POST['body'];
-  }
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
