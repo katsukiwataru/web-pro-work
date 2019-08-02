@@ -32,13 +32,6 @@
 </head>
 <body>
   <h1>コンテンツ</h1>
-<?php
-  // while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-  //   if ($desc=== $row["id"]) {
-  //     var_dump($desc=== $row["id"]);
-  //   }
-  // }
-?>
   <div>
     <h2>タイトル:<?= $row["title"]?></h2>
     <p>内容:<?= $row["body"]?></p>
