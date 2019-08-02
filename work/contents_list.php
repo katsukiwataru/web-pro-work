@@ -39,6 +39,7 @@
   $stmt->execute();
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 ?><div class="contents_list">
+    <p class="contents_id"><?= $row["id"]?></p>
     <p class="contents_title"><?= $row["title"]?></p>
     <p class="contents_name"><?= $row["name"]?></p>
     <p class="contents_body"><?= $row["body"]?></p>
