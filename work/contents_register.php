@@ -6,6 +6,26 @@
     header('Location: index.php');
     exit;
   }
+
+  if (in_array("2", $per)) {
+    if (!empty($_POST['category']) && !empty($_POST['title'] && !empty($_POST['body']))) {
+      $title = $_POST['title'];
+      $body = $_POST['body'];
+      $category = $_POST['category'];
+      try {
+        $dbh = new PDO('mysql:host=db;dbname=cms','myuser', 'testuser');
+        $stmt = $dbh->prepare('INSERT INTO contents (title, body, category_id) VALUES (?,?,?)');
+        $stmt->execute(array($title, $body, $category));
+        var_dump($stmt);
+      } catch (PDOException $e) {
+        var_dump($e);
+        exit;
+      }
+    }
+  } else {
+    header('Location: index.php');
+    exit;
+  }
 ?>
 
 <!DOCTYPE html>
