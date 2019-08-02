@@ -9,20 +9,19 @@
 
   if (!empty($_POST['title'])) {
     $title = $_POST['title'];
-  }
-
-  if (in_array("2", $perm)) {
-    try {
-      $dbh = new PDO('mysql:host=db;dbname=cms','myuser', 'testuser');
-      $stmt = $dbh->prepare('INSERT INTO categories (name) VALUES (?)');
-      $stmt->execute(array($title));
+    if (in_array("2", $perm)) {
+      try {
+        $dbh = new PDO('mysql:host=db;dbname=cms','myuser', 'testuser');
+        $stmt = $dbh->prepare('INSERT INTO categories (name) VALUES (?)');
+        $stmt->execute(array($title));
+      } catch (PDOException $e) {
+        var_dump ($e);
+        exit;
+      }
+    } else {
       header('Location: index.php');
-    } catch (PDOException $e) {
-      var_dump ($e);
       exit;
     }
-  } else {
-    header('Location: index.php');
   }
 ?>
 <!DOCTYPE html>
