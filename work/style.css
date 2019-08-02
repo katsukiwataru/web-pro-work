@@ -13,3 +13,7 @@
 .users_permissions {
   margin: 10px;
 }
+
+.contents_list {
+  display: flex;
+}
