@@ -14,7 +14,6 @@
     exit;
   }
 
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -36,15 +35,15 @@
   </div>
   <div>
 <?php
-  $stmt = $dbh->prepare('SELECT * FROM contents JOIN categories ON contents.category_id = categories.id');
+  $stmt = $dbh->prepare('SELECT contents.id, contents.title, contents.body, contents.date, categories.name FROM contents JOIN categories ON contents.category_id = categories.id;');
   $stmt->execute();
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    // var_dump($row);
 ?><div class="contents_list">
     <p class="contents_title"><?= $row["title"]?></p>
     <p class="contents_name"><?= $row["name"]?></p>
     <p class="contents_body"><?= $row["body"]?></p>
     <p class="contents_date"><?= $row["date"]?></p>
+    <a href="contents.php?desc=<?=$row['id']?>">閲覧</a>
   </div>
 <?
   }
