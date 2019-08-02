@@ -16,7 +16,7 @@
         $dbh = new PDO('mysql:host=db;dbname=cms','myuser', 'testuser');
         $stmt = $dbh->prepare('INSERT INTO contents (title, body, category_id) VALUES (?,?,?)');
         $stmt->execute(array($title, $body, $category));
-        var_dump($stmt);
+        header('Location: index.php');
       } catch (PDOException $e) {
         var_dump($e);
         exit;

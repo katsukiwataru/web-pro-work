@@ -16,6 +16,7 @@
       $dbh = new PDO('mysql:host=db;dbname=cms','myuser', 'testuser');
       $stmt = $dbh->prepare('INSERT INTO categories (name) VALUES (?)');
       $stmt->execute(array($title));
+      header('Location: index.php');
     } catch (PDOException $e) {
       var_dump ($e);
       exit;

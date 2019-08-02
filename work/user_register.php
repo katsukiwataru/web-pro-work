@@ -24,8 +24,8 @@
           foreach ($permissions as $perm){
             $_stmt->execute(array($max_id, $perm));
           };
-          header('Location: index.php');
         };
+        header('Location: index.php');
       } catch (PDOException $e) {
         var_dump($e);
         exit;
