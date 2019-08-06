@@ -47,26 +47,38 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="header">
   <div>
-    <h1>CMS</h1>
+    <h1 class="title">ユーザー登録</h1>
   </div>
   </header>
-  <form action="user_register.php" method="POST">
-    <div>
-      <p>ログインID</p>
-      <input type="text" name="id">
-    </div>
-    <div>
-      <p>パスワード</p>
-      <input type="password" name="pass">
-    </div>
-    <div>
-      <p>権限</p>
-      <input type="checkbox" name="permission[]" value="1">管理者
-      <input type="checkbox" name="permission[]" value="2">編集者
-      <input type="checkbox" name="permission[]" value="3">閲覧者
-    </div>
-    <button>登録</button>
-  </form>
+  <ul class="nav">
+    <li class="nav_item"><a class="nav_item_link" href="user_list.php">ユーザー一覧</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="user_register.php">ユーザー登録</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="contents_list.php">コンテンツ一覧</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="contents_register.php">コンテンツ登録</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="contents.php">コンテンツ詳細</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="category_list.php">カテゴリー一覧</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="category_register.php">カテゴリー登録</a></li>
+  </ul>
+  <div class="position">
+    <form action="user_register.php" method="POST">
+      <div>
+        <p>ログインID</p>
+        <input type="text" name="id">
+      </div>
+      <div>
+        <p>パスワード</p>
+        <input type="password" name="pass">
+      </div>
+      <div>
+        <p>権限</p>
+        <input class="checkbox" type="checkbox" name="permission[]" value="1">管理者
+        <input class="checkbox" type="checkbox" name="permission[]" value="2">編集者
+        <input class="checkbox" type="checkbox" name="permission[]" value="3">閲覧者
+      </div>
+      <button>登録</button>
+    </form>
+  </div>
 </body>
 </html>
