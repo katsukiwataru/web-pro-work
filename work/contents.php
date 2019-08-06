@@ -31,8 +31,20 @@
   <title>CMS コンテンツ</title>
 </head>
 <body>
-  <h1>コンテンツ</h1>
+  <header class="header">
   <div>
+    <h1 class="title">コンテンツ</h1>
+  </div>
+  </header>
+  <ul class="nav">
+    <li class="nav_item"><a class="nav_item_link" href="user_list.php">ユーザー一覧</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="user_register.php">ユーザー登録</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="contents_list.php">コンテンツ一覧</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="contents_register.php">コンテンツ登録</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="category_list.php">カテゴリー一覧</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="category_register.php">カテゴリー登録</a></li>
+  </ul>
+  <div class="position">
     <h2>タイトル:<?= $row["title"]?></h2>
     <p>内容:<?= $row["body"]?></p>
   </div>

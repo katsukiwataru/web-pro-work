@@ -26,29 +26,42 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>コンテンツ一覧</h1>
-  <div class="contents_list">
-    <p>ID</p>
-    <p>カテゴリ</p>
-    <p>タイトル</p>
-    <p>登録日</p>
-  </div>
+  <ul class="nav">
+    <li class="nav_item"><a class="nav_item_link" href="user_list.php">ユーザー一覧</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="user_register.php">ユーザー登録</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="contents_list.php">コンテンツ一覧</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="contents_register.php">コンテンツ登録</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="category_list.php">カテゴリー一覧</a></li>
+    <li class="nav_item"><a class="nav_item_link" href="category_register.php">カテゴリー登録</a></li>
+  </ul>
+  <header class="header">
   <div>
+    <h1 class="title">コンテンツ一覧</h1>
+  </div>
+  </header>
+  <div class="position">
+    <div class="contents_list">
+      <p>ID</p>
+      <p>カテゴリ</p>
+      <p>タイトル</p>
+      <p>登録日</p>
+    </div>
 <?php
   $stmt = $dbh->prepare('SELECT contents.id, contents.title, contents.body, contents.date, categories.name FROM contents JOIN categories ON contents.category_id = categories.id;');
   $stmt->execute();
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-?><div class="contents_list">
-    <p class="contents_id"><?= $row["id"]?></p>
-    <p class="contents_title"><?= $row["title"]?></p>
-    <p class="contents_name"><?= $row["name"]?></p>
-    <p class="contents_body"><?= $row["body"]?></p>
-    <p class="contents_date"><?= $row["date"]?></p>
-    <a href="contents.php?desc=<?=$row['id']?>">閲覧</a>
-  </div>
+?>
+    <div class="contents_list">
+      <p class="contents_id"><?= $row["id"]?></p>
+      <p class="contents_title"><?= $row["title"]?></p>
+      <p class="contents_name"><?= $row["name"]?></p>
+      <p class="contents_body"><?= $row["body"]?></p>
+      <p class="contents_date"><?= $row["date"]?></p>
+      <a href="contents.php?desc=<?=$row['id']?>">閲覧</a>
+    </div>
 <?
   }
-?>
+  ?>
   </div>
 </body>
 </html>

@@ -12,11 +12,6 @@
   <title>CMS</title>
 </head>
 <body>
-  <header class="header">
-  <div>
-    <h1 class="title">CMS</h1>
-  </div>
-  </header>
   <ul class="nav">
     <li class="nav_item"><a class="nav_item_link" href="user_list.php">ユーザー一覧</a></li>
     <li class="nav_item"><a class="nav_item_link" href="user_register.php">ユーザー登録</a></li>
@@ -26,6 +21,11 @@
     <li class="nav_item"><a class="nav_item_link" href="category_list.php">カテゴリー一覧</a></li>
     <li class="nav_item"><a class="nav_item_link" href="category_register.php">カテゴリー登録</a></li>
   </ul>
+  <header class="header">
+  <div>
+    <h1 class="title">CMS</h1>
+  </div>
+  </header>
 <?
 if (!$_SESSION['user']) {
 ?>
