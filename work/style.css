@@ -1,3 +1,53 @@
+input {
+  margin: 20px 0;
+}
+
+.checkbox + .checkbox {
+  margin-left: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+.header {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+  background-color: gray;
+}
+
+.title {
+  color: white;
+}
+
+.nav {
+  position: fixed;
+  height: 100vh;
+  background-color: gray;
+}
+
+.nav_item {
+  margin: 20px;
+}
+
+.nav_item_link {
+  color: white;
+}
+
+.position {
+  position: absolute;
+  left: 182px;
+  top: 80px;
+}
+
+.logout {
+  position: absolute;
+  left: 182px;
+  top: 80px;
+}
+
 .user_list {
   display: flex;
 }
